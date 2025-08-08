@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bougie Buckeye - Premium Ohio Lifestyle Store</title>
+    <meta name="description" content="Premium Ohio-themed products featuring Buckeyes merchandise, Cleveland Browns gear, and Cincinnati specialties. Bougie Dreams, Buckeye Means.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo .buckeye {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(210, 105, 30, 0.8)), 
+                        linear-gradient(45deg, #8B4513, #D2691E);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B4513;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 0.5rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #D2691E;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #D2691E;
+            margin-bottom: 1rem;
+        }
+
+        .product-button {
+            background: #8B4513;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .product-button:hover {
+            background: #A0522D;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #D2691E;
+        }
+
+        .feature h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D2691E;
+        }
+
+        .submit-button {
+            background: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #A0522D;
+        }
+
+        .stock-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .shipping-info {
+            background: #e8f4f8;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="buckeye">🌰</span>
+                    <span>The Bougie Buckeye</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>The Bougie Buckeye</h1>
+            <p class="tagline">Bougie Dreams, Buckeye Means</p>
+            <p>Premium Ohio lifestyle products for the sophisticated Buckeye. From Ohio State pride to Cleveland Browns gear, we curate the finest Ohio-themed merchandise with 2-day shipping nationwide.</p>
+            <a href="#products" class="cta-button">Shop Collection</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Premium Ohio Collection</h2>
+            
+            <!-- Ohio State Buckeyes Section -->
+            <div class="category-section">
+                <h3 class="category-title">🏈 Ohio State Buckeyes Collection</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🏆</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>OSU Championship Hoodie</h3>
+                        <p>Premium quality Ohio State championship hoodie featuring the iconic Buckeye logo. Made with soft cotton blend for ultimate comfort and durability.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$75 - $85</div>
+                        <button class="product-button" onclick="contactUs('OSU Championship Hoodie')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">💍</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Buckeye Leaf Jewelry Set</h3>
+                        <p>Elegant sterling silver jewelry featuring authentic Ohio buckeye leaf designs. Perfect for showing your Buckeye pride with sophistication.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$45 - $65</div>
+                        <button class="product-button" onclick="contactUs('Buckeye Leaf Jewelry')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🏟️</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Ohio Stadium Print Collection</h3>
+                        <p>Beautiful framed prints of "The Shoe" featuring aerial views and historic moments. Museum-quality prints perfect for any Buckeye fan's home or office.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$55 - $75</div>
+                        <button class="product-button" onclick="contactUs('Ohio Stadium Prints')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cleveland Browns Section -->
+            <div class="category-section">
+                <h3 class="category-title">🏈 Cleveland Browns Collection</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">👕</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Browns Jersey Collection</h3>
+                        <p>Authentic Cleveland Browns jerseys featuring current and legendary players. Official NFL merchandise with premium stitching and materials.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$95 - $120</div>
+                        <button class="product-button" onclick="contactUs('Browns Jersey')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🐕</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Dawg Pound Fan Gear</h3>
+                        <p>Complete Dawg Pound fan package including foam bones, face paint, and premium Browns accessories. Show your Cleveland pride in style!</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$35 - $55</div>
+                        <button class="product-button" onclick="contactUs('Dawg Pound Gear')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🏙️</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Cleveland Skyline Art</h3>
+                        <p>Stunning Cleveland skyline artwork featuring the iconic city silhouette. Available in canvas prints and metal wall art for modern home decor.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$65 - $85</div>
+                        <button class="product-button" onclick="contactUs('Cleveland Skyline Art')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cincinnati Specialties Section -->
+            <div class="category-section">
+                <h3 class="category-title">🌶️ Cincinnati Specialties</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🍝</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Cincinnati Chili Kit</h3>
+                        <p>Authentic Cincinnati chili spice blend with detailed recipe instructions. Includes everything needed to make genuine Cincy chili at home.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$25 - $35</div>
+                        <button class="product-button" onclick="contactUs('Cincinnati Chili Kit')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🐅</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Cincinnati Bengals Gear</h3>
+                        <p>Official Cincinnati Bengals merchandise including jerseys, hats, and accessories. Support your Bengals with premium fan gear.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$45 - $85</div>
+                        <button class="product-button" onclick="contactUs('Bengals Gear')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">☕</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Queen City Coffee Collection</h3>
+                        <p>Premium coffee blends from Cincinnati's finest roasters. Includes signature Queen City blend and seasonal specialty roasts.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$20 - $30</div>
+                        <button class="product-button" onclick="contactUs('Queen City Coffee')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ohio Home & Gifts Section -->
+            <div class="category-section">
+                <h3 class="category-title">🏠 Ohio Home & Gifts</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🔪</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Ohio-Shaped Cutting Board</h3>
+                        <p>Beautiful handcrafted cutting board shaped like the state of Ohio. Made from premium hardwood with food-safe finish. Perfect for any Ohio kitchen.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$35 - $50</div>
+                        <button class="product-button" onclick="contactUs('Ohio Cutting Board')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🗼</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Lake Erie Lighthouse Art</h3>
+                        <p>Stunning photography and artwork featuring Lake Erie's historic lighthouses. Available in multiple sizes and framing options.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$45 - $75</div>
+                        <button class="product-button" onclick="contactUs('Lake Erie Lighthouse Art')">Order Now</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🍬</div>
+                        <div class="stock-badge">In Stock</div>
+                        <h3>Buckeye Candy Gift Box</h3>
+                        <p>Gourmet buckeye candies made with premium chocolate and peanut butter. Beautifully packaged gift boxes perfect for any occasion.</p>
+                        <div class="shipping-info">🚚 2-Day Shipping Available</div>
+                        <div class="price">$20 - $40</div>
+                        <button class="product-button" onclick="contactUs('Buckeye Candy')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose The Bougie Buckeye?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>2-Day Shipping</h3>
+                    <p>Fast delivery from US warehouses. Get your Ohio pride gear quickly and reliably nationwide.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Curated selection of high-quality Ohio-themed products. Only the best for sophisticated Buckeye fans.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Shopping</h3>
+                    <p>Safe and secure checkout with multiple payment options. Your information is always protected.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💝</div>
+                    <h3>Perfect Gifts</h3>
+                    <p>Unique Ohio-themed gifts for any occasion. Show your Ohio pride or surprise a fellow Buckeye.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="products">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Product Interest:</label>
+                        <input type="text" id="product" name="product" placeholder="Which Ohio products interest you?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your Ohio pride or ask any questions!"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Bougie Buckeye</h3>
+                    <p>Premium Ohio lifestyle products for the sophisticated Buckeye. Bougie Dreams, Buckeye Means.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#products">Products</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <p>2-Day Shipping Available</p>
+                    <p>Secure Checkout</p>
+                    <p>Premium Quality Guaranteed</p>
+                </div>
+            </div>
+            <p>&copy; 2025 The Bougie Buckeye. All rights reserved. Made with Ohio pride. 🌰</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact form functionality
+        function contactUs(product) {
+            document.getElementById('product').value = product;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Bougie Buckeye Order - ${product}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProduct: ${product}\n\nMessage:\n${message}\n\nPlease send payment details and shipping information.`);
+            const mailtoLink = `mailto:orders@thebougiebuckeye.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Thank you for your order! Your email client will open to send your order details. We\'ll respond with payment and shipping information within 24 hours!');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate product cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all product cards
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add click tracking for analytics
+            document.querySelectorAll('.product-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Product interest:', this.onclick.toString().match(/'([^']+)'/)[1]);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
